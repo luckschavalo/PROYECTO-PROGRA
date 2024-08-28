@@ -11,32 +11,40 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lucas
  */
-public class Animales extends javax.swing.JFrame {
-    DefaultTableModel modelo; 
 
-   
+public class Animales extends javax.swing.JFrame {
+
+    private static DefaultTableModel modelo = new DefaultTableModel();
+    private static DefaultTableModel tablaHabitats = Habitats.getModelo();
+
     public Animales() {
         initComponents();
         setVisible(false);
         setLocationRelativeTo(null);
         setVisible(true);
-        modelo = new DefaultTableModel();
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Habitat");
-        modelo.addColumn("Especie");
-        modelo.addColumn("Sexo");
+        if (modelo.getColumnCount() == 0) {
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Habitat");
+            modelo.addColumn("Especie");
+            modelo.addColumn("Sexo");
+            this.tabla.setModel(modelo);
+            precargarDatos();
+        }
         this.tabla.setModel(modelo);
-        precargarDatos();
     }
-     private void precargarDatos() {
+
+    private void precargarDatos() {
         String[][] datos = {
             {"León", "Sabana", "Felino", "Macho"},
-            {"Tigre", "Selva", "Felino", "Hembra"},
-        };
+            {"Tigre", "Selva", "Felino", "Hembra"},};
 
         for (String[] fila : datos) {
             modelo.addRow(fila);
         }
+    }
+    
+     public static DefaultTableModel getModelo() {
+        return modelo;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,14 +88,15 @@ public class Animales extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(88, 98, 50));
         jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(254, 249, 224));
         jButton1.setText("INICIO");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 400, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 50, 20));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(254, 249, 224));
@@ -146,36 +155,39 @@ public class Animales extends javax.swing.JFrame {
 
         bAñadir.setBackground(new java.awt.Color(88, 98, 50));
         bAñadir.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        bAñadir.setForeground(new java.awt.Color(0, 0, 0));
+        bAñadir.setForeground(new java.awt.Color(254, 249, 224));
         bAñadir.setText("AÑADIR");
+        bAñadir.setBorder(null);
         bAñadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bAñadirActionPerformed(evt);
             }
         });
-        jPanel1.add(bAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, -1, -1));
+        jPanel1.add(bAñadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 387, 60, 20));
 
         bModi.setBackground(new java.awt.Color(88, 98, 50));
         bModi.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        bModi.setForeground(new java.awt.Color(0, 0, 0));
+        bModi.setForeground(new java.awt.Color(254, 249, 224));
         bModi.setText("MODIFICAR");
+        bModi.setBorder(null);
         bModi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bModiActionPerformed(evt);
             }
         });
-        jPanel1.add(bModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
+        jPanel1.add(bModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 387, 80, 20));
 
         bEliminar.setBackground(new java.awt.Color(88, 98, 50));
         bEliminar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        bEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        bEliminar.setForeground(new java.awt.Color(254, 249, 224));
         bEliminar.setText("ELIMINAR");
+        bEliminar.setBorder(null);
         bEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(bEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+        jPanel1.add(bEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 387, 70, 20));
 
         jLabel9.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 249, 224));
@@ -224,18 +236,18 @@ public class Animales extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 814, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JFrame in = new JFrame();
+        JFrame in = new JFrame();
         in.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -245,26 +257,36 @@ public class Animales extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
 
-    
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
-        String []info = new String[4];
+        String[] info = new String[4];
         info[0] = txtNombre.getText();
         info[1] = txtHabitat.getText();
         info[2] = txtEspecie.getText();
         info[3] = txtSexo.getText();
-        modelo.addRow(info);
-        
-        txtNombre.setText("");
-        txtHabitat.setText("");
-        txtEspecie.setText("");
-        txtSexo.setText("");
+        boolean habitatExiste = false;
+        for (int i = 0; i < tablaHabitats.getRowCount(); i++) {
+            if (txtHabitat.getText().equals(tablaHabitats.getValueAt(i, 0))) {
+                habitatExiste = true;
+                break;
+            }
+        }
+
+        if (habitatExiste) {
+            modelo.addRow(info);
+        } else {
+            JOptionPane.showMessageDialog(null, "El hábitat no existe");
+            txtNombre.setText("");
+            txtHabitat.setText("");
+            txtEspecie.setText("");
+            txtSexo.setText("");
+        }
     }//GEN-LAST:event_bAñadirActionPerformed
 
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         int fila = tabla.getSelectedRow();
-        if(fila >= 0 ){
+        if (fila >= 0) {
             modelo.removeRow(fila);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "seleccione la fila");
         }
     }//GEN-LAST:event_bEliminarActionPerformed
@@ -279,32 +301,31 @@ public class Animales extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    /* Set the Nimbus look and feel */
+    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+     */
+    try {
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            if ("Nimbus".equals(info.getName())) {
+                javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                break;
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        
+    } catch (ClassNotFoundException ex) {
+        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (InstantiationException ex) {
+        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (IllegalAccessException ex) {
+        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
+
+    /* Create and display the form */
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAñadir;

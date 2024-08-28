@@ -2,6 +2,8 @@ package Frame;
 
 public class JFrame extends javax.swing.JFrame {
 
+    private Alimentacion alimentacion;
+
     public JFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -47,9 +49,10 @@ public class JFrame extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(55, 79, 29));
         jButton7.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 0, 0));
+        jButton7.setForeground(new java.awt.Color(254, 249, 224));
         jButton7.setText("ANIMALES");
         jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton7.setContentAreaFilled(false);
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -59,9 +62,10 @@ public class JFrame extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(55, 79, 29));
         jButton8.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(0, 0, 0));
+        jButton8.setForeground(new java.awt.Color(254, 249, 224));
         jButton8.setText("MAPA");
         jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton8.setContentAreaFilled(false);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -71,9 +75,10 @@ public class JFrame extends javax.swing.JFrame {
 
         jButton9.setBackground(new java.awt.Color(55, 79, 29));
         jButton9.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(0, 0, 0));
+        jButton9.setForeground(new java.awt.Color(254, 249, 224));
         jButton9.setText("EVENTOS");
         jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton9.setContentAreaFilled(false);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -82,10 +87,11 @@ public class JFrame extends javax.swing.JFrame {
         jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 190, 70, 30));
 
         jButton10.setBackground(new java.awt.Color(55, 79, 29));
-        jButton10.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(0, 0, 0));
+        jButton10.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(254, 249, 224));
         jButton10.setText("VISITANTES");
         jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton10.setContentAreaFilled(false);
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -95,9 +101,10 @@ public class JFrame extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(55, 79, 29));
         jButton11.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(0, 0, 0));
+        jButton11.setForeground(new java.awt.Color(254, 249, 224));
         jButton11.setText("HABITATS");
         jButton11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton11.setContentAreaFilled(false);
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -107,9 +114,10 @@ public class JFrame extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(55, 79, 29));
         jButton12.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(0, 0, 0));
+        jButton12.setForeground(new java.awt.Color(254, 249, 224));
         jButton12.setText("ALIMENTACION");
         jButton12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton12.setContentAreaFilled(false);
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -141,7 +149,7 @@ public class JFrame extends javax.swing.JFrame {
         jLabel7.setText("jLabel7");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 140, 140));
 
-        ingreso.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 1050, 450));
+        ingreso.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1050, 470));
 
         jLabel9.setBackground(new java.awt.Color(254, 249, 224));
         jLabel9.setFont(new java.awt.Font("Roboto Black", 1, 48)); // NOI18N
@@ -176,15 +184,17 @@ public class JFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        Alimentacion ha = new Alimentacion();
-        ha.setVisible(true);
-        this.dispose();
+        if (alimentacion == null) {
+            alimentacion = new Alimentacion();
+        }
+        alimentacion.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         Habitats al = new Habitats();
         al.setVisible(true);
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed

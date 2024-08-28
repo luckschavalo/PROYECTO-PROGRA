@@ -12,8 +12,10 @@ import javax.swing.table.DefaultTableModel;
  * @author lucas
  */
 public class Alimentacion extends javax.swing.JFrame {
-    DefaultTableModel modelo;
 
+    private static DefaultTableModel modelo = new DefaultTableModel();
+    private static DefaultTableModel tablaAnimales = Animales.getModelo();
+    
     /**
      * Creates new form Habitats
      */
@@ -22,12 +24,14 @@ public class Alimentacion extends javax.swing.JFrame {
         setVisible(false);
         setLocationRelativeTo(null);
         setVisible(true);
-        modelo = new DefaultTableModel(); //para configurar tabla
-        modelo.addColumn("Nombre");
-        modelo.addColumn("Aliento");
-        modelo.addColumn("Horario");
-        modelo.addColumn("Frecuencia");
-        modelo.addColumn("Cantidad");
+        if (modelo.getColumnCount() == 0) {
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Aliento");
+            modelo.addColumn("Horario");
+            modelo.addColumn("Frecuencia");
+            modelo.addColumn("Cantidad");
+
+        }
         this.tabla.setModel(modelo);
     }
 
@@ -67,14 +71,15 @@ public class Alimentacion extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(88, 98, 50));
         jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(254, 249, 224));
         jButton1.setText("INICIO");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 463, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(753, 463, 60, 20));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 249, 224));
@@ -108,25 +113,27 @@ public class Alimentacion extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(88, 98, 50));
         jButton2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setForeground(new java.awt.Color(254, 249, 224));
         jButton2.setText("AÑADIR");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 269, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 70, 20));
 
         jButton3.setBackground(new java.awt.Color(88, 98, 50));
         jButton3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setForeground(new java.awt.Color(254, 249, 224));
         jButton3.setText("ELIMINAR");
+        jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(24, 320, 96, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 70, 20));
 
         txtanimal.setBackground(new java.awt.Color(88, 98, 50));
         txtanimal.setForeground(new java.awt.Color(254, 249, 224));
@@ -179,10 +186,7 @@ public class Alimentacion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 831, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,9 +197,9 @@ public class Alimentacion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JFrame on = new JFrame();
+        JFrame on = new JFrame();
         on.setVisible(true); // para que el boton regrese al menu
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtalimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtalimentoActionPerformed
@@ -203,29 +207,28 @@ public class Alimentacion extends javax.swing.JFrame {
     }//GEN-LAST:event_txtalimentoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String []info = new String[5];
+        String[] info = new String[5];
         info[0] = txtanimal.getText();
         info[1] = txtalimento.getText();
         info[2] = txthorario.getText();
         info[3] = txtfrecu.getText();
         info[4] = txtcantidad.getText();
-        modelo.addRow(info);
-                                             //para que almacene la informacion en la tabla 
+        modelo.addRow(info); //para que almacene la informacion en la tabla 
         txtanimal.setText("");
         txtalimento.setText("");
         txthorario.setText("");
         txtfrecu.setText("");
         txtcantidad.setText("");
-
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int fila = tabla.getSelectedRow();
-        if( fila >= 0){
+        if (fila >= 0) {
             modelo.removeRow(fila);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "seleccione la fila");
-            
+
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

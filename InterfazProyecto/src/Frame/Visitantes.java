@@ -12,7 +12,8 @@ import javax.swing.table.DefaultTableModel;
  * @author lucas
  */
 public class Visitantes extends javax.swing.JFrame {
-    DefaultTableModel modelo;
+
+    private static DefaultTableModel modelo = new DefaultTableModel();
 
     /**
      * Creates new form Visitantes
@@ -22,25 +23,28 @@ public class Visitantes extends javax.swing.JFrame {
         setVisible(false);
         setLocationRelativeTo(null);
         setVisible(true);
-        modelo = new DefaultTableModel();
-        modelo.addColumn("Nombre Completo");
-        modelo.addColumn("Edad");
-        modelo.addColumn("Fecha de Ingreso");
-        modelo.addColumn("Personas Totales");
-        modelo.addColumn("Ninos y Adultos");
+        if (modelo.getColumnCount() == 0) {
+            modelo.addColumn("Nombre Completo");
+            modelo.addColumn("Edad");
+            modelo.addColumn("Fecha de Ingreso");
+            modelo.addColumn("Personas Totales");
+            modelo.addColumn("Ninos y Adultos");
+
+            precargarDatos();
+        }
         this.tabla.setModel(modelo);
-        precargarDatos();
     }
+
     private void precargarDatos() {
         String[][] datos = {
             {"Juan Chavarria Lopez", "25", "27-6-24", "4", "2 y 3"},
-            {"Alberto Brenes Sequeira", "43", "15-7-24", "7", "5 y 2"},
-        };
+            {"Alberto Brenes Sequeira", "43", "15-7-24", "7", "5 y 2"},};
 
         for (String[] fila : datos) {
             modelo.addRow(fila);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,8 +79,9 @@ public class Visitantes extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(88, 98, 50));
         jButton1.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(254, 249, 224));
         jButton1.setText("INICIO");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -141,8 +146,9 @@ public class Visitantes extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(88, 98, 50));
         jButton2.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setForeground(new java.awt.Color(254, 249, 224));
         jButton2.setText("AÑADIR");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -151,8 +157,9 @@ public class Visitantes extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(88, 98, 50));
         jButton3.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setForeground(new java.awt.Color(254, 249, 224));
         jButton3.setText("ELIMINAR");
+        jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -163,15 +170,6 @@ public class Visitantes extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(352, 352, 352))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,9 +185,9 @@ public class Visitantes extends javax.swing.JFrame {
                                 .addGap(49, 49, 49)
                                 .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -208,6 +206,15 @@ public class Visitantes extends javax.swing.JFrame {
                         .addGap(83, 83, 83)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(352, 352, 352))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,12 +245,12 @@ public class Visitantes extends javax.swing.JFrame {
                             .addComponent(jLabel6))
                         .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(30, 30, 30)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -271,14 +278,14 @@ public class Visitantes extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEdadActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String []info = new String[5];
+        String[] info = new String[5];
         info[0] = txtNombreee.getText();
         info[1] = txtEdad.getText();
         info[2] = txtFecha.getText();
         info[3] = txtPersonss.getText();
         info[4] = txtNinos.getText();
         modelo.addRow(info);
-        
+
         txtNombreee.setText("");
         txtEdad.setText("");
         txtFecha.setText("");
@@ -288,9 +295,9 @@ public class Visitantes extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int fila = tabla.getSelectedRow();
-        if(fila >= 0){
+        if (fila >= 0) {
             modelo.removeRow(fila);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "seleccione la fila");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
