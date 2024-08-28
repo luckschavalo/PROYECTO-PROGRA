@@ -65,12 +65,12 @@ public class Alimentacion extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         txtcantidad1 = new javax.swing.JTextField();
         txtcantidad2 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         txtFila = new javax.swing.JTextField();
         txtNuevo = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -221,11 +221,6 @@ public class Alimentacion extends javax.swing.JFrame {
         txtcantidad2.setForeground(new java.awt.Color(254, 249, 224));
         jPanel1.add(txtcantidad2, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 210, 71, -1));
 
-        jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("para modificar");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
-
         jLabel9.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(254, 249, 224));
         jLabel9.setText("Fila");
@@ -258,6 +253,10 @@ public class Alimentacion extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(254, 249, 224));
         jLabel11.setText("Cantidad");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 209, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel12.setText("Para Modificar");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -379,13 +378,13 @@ public class Alimentacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
