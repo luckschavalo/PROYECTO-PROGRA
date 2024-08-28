@@ -248,6 +248,7 @@ public class Habitats extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       if (modelo.getRowCount() < 8) {
         String[] info = new String[3];
         info[0] = txtnombree.getText();
         info[1] = txtambiente.getText();
@@ -257,6 +258,10 @@ public class Habitats extends javax.swing.JFrame {
         txtnombree.setText("");
         txtambiente.setText("");
         txtcapacidad.setText("");
+       } else {
+           JOptionPane.showMessageDialog(null, "Se alcanzo el maximo de habitats disponibles");
+       }
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

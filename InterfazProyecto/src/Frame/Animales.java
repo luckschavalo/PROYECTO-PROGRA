@@ -292,9 +292,13 @@ public class Animales extends javax.swing.JFrame {
     }//GEN-LAST:event_bEliminarActionPerformed
 
     private void bModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModiActionPerformed
+      try{ 
         int fila = Integer.parseInt(txtFila.getText());
         int columna = Integer.parseInt(txtColumna.getText());
         modelo.setValueAt(txtNuevo.getText(), fila, columna);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "No existe el habitat");
+    }
     }//GEN-LAST:event_bModiActionPerformed
 
     /**
