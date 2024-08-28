@@ -12,9 +12,10 @@ import javax.swing.table.DefaultTableModel;
  * @author Andy
  */
 public class Mapa extends javax.swing.JFrame {
+
     private static DefaultTableModel tablaHabitats = Habitats.getModelo();
     private static DefaultTableModel tablaAnimales = Animales.getModelo();
-    
+
     /**
      * Creates new form Mapa
      */
@@ -690,140 +691,142 @@ public class Mapa extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    //Metodos que permiten mostrar la informacion de la primera columna de la tabla de Habitats y Animales segun la fila asignada
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-       String quintoHabitat =(String) tablaHabitats.getValueAt(4, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (quintoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+            String quintoHabitat = (String) tablaHabitats.getValueAt(4, 0); //El (String) fue utilizado debido a que la tabla almacena los valores como objetos, por lo que al utilizar el JOptionPane daba error
+            String animales = "";
+      //A continuacion, el metodo crea dos variables las cuales trabajan con los valores de la tabla de Animales y asignan los animales correspondientes al habitat a la variable animales, que luego se muestra
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (quintoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + quintoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + quintoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       try {
-       String primerHabitat =(String) tablaHabitats.getValueAt(0, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (primerHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+        try {
+            String primerHabitat = (String) tablaHabitats.getValueAt(0, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (primerHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + primerHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + primerHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try {
-       String segundoHabitat =(String) tablaHabitats.getValueAt(1, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (segundoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+            String segundoHabitat = (String) tablaHabitats.getValueAt(1, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (segundoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + segundoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + segundoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       try {
-       String octavoHabitat =(String) tablaHabitats.getValueAt(7, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (octavoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+        try {
+            String octavoHabitat = (String) tablaHabitats.getValueAt(7, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (octavoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + octavoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + octavoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         try {
-       String sextoHabitat =(String) tablaHabitats.getValueAt(5, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (sextoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+            String sextoHabitat = (String) tablaHabitats.getValueAt(5, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (sextoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + sextoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + sextoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         try {
-       String tercerHabitat =(String) tablaHabitats.getValueAt(2, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (tercerHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+        try {
+            String tercerHabitat = (String) tablaHabitats.getValueAt(2, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (tercerHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + tercerHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + tercerHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         try {
-       String setimoHabitat =(String) tablaHabitats.getValueAt(6, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (setimoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+            String setimoHabitat = (String) tablaHabitats.getValueAt(6, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (setimoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + setimoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + setimoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         try {
-       String cuartoHabitat =(String) tablaHabitats.getValueAt(3, 0);
-       String animales = "";
-           for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
-            String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1); 
-            String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);  
-            if (cuartoHabitat.equals(habitatAnimal)) {
-                animales += nombreAnimal + "\n";
+            String cuartoHabitat = (String) tablaHabitats.getValueAt(3, 0);
+            String animales = "";
+            for (int i = 0; i < tablaAnimales.getRowCount(); i++) {
+                String habitatAnimal = (String) tablaAnimales.getValueAt(i, 1);
+                String nombreAnimal = (String) tablaAnimales.getValueAt(i, 0);
+                if (cuartoHabitat.equals(habitatAnimal)) {
+                    animales += nombreAnimal + "\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, "Habitat → " + cuartoHabitat + "\n" + "Animales: " + "\n" + animales);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            JOptionPane.showMessageDialog(null, "No existe el habitat");
         }
-       JOptionPane.showMessageDialog(null, "Habitat → " + cuartoHabitat + "\n" + "Animales: " + "\n" + animales);
-      } catch (ArrayIndexOutOfBoundsException e) {
-        JOptionPane.showMessageDialog(null, "No existe el habitat");
-    }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     /**

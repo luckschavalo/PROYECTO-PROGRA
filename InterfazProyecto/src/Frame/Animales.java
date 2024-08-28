@@ -11,10 +11,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lucas
  */
-
 public class Animales extends javax.swing.JFrame {
 
     private static DefaultTableModel modelo = new DefaultTableModel();
+    //Se crea una tabla (no se muestra) que contiene la información de la tabla de habitats, lo cual permite llamar la información almacenada en la tabla de habitats
     private static DefaultTableModel tablaHabitats = Habitats.getModelo();
 
     public Animales() {
@@ -32,7 +32,7 @@ public class Animales extends javax.swing.JFrame {
         }
         this.tabla.setModel(modelo);
     }
-
+    //Metodo para precargar los datos mediante un bucle for-each, luego se llama al método que inicializa las funcionalidades
     private void precargarDatos() {
         String[][] datos = {
             {"León", "Sabana", "Felino", "Macho"},
@@ -43,9 +43,11 @@ public class Animales extends javax.swing.JFrame {
         }
     }
     
-     public static DefaultTableModel getModelo() {
+    //Método que permite llamar la tabla de Animales desde otras clases
+    public static DefaultTableModel getModelo() {
         return modelo;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -256,7 +258,7 @@ public class Animales extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
 
-
+    //Metodo del botón que permite añadir la información
     private void bAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAñadirActionPerformed
         String[] info = new String[4];
         info[0] = txtNombre.getText();
@@ -282,6 +284,7 @@ public class Animales extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bAñadirActionPerformed
 
+    //Metodo del botón que permite eliminar la información
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         int fila = tabla.getSelectedRow();
         if (fila >= 0) {
@@ -290,46 +293,46 @@ public class Animales extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "seleccione la fila");
         }
     }//GEN-LAST:event_bEliminarActionPerformed
-
+    //Metodo del botón que permite modificar la información
     private void bModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModiActionPerformed
-      try{ 
-        int fila = Integer.parseInt(txtFila.getText());
-        int columna = Integer.parseInt(txtColumna.getText());
-        modelo.setValueAt(txtNuevo.getText(), fila, columna);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Por favor, ingrese los datos correctamente.");
-    }
+        try {
+            int fila = Integer.parseInt(txtFila.getText());
+            int columna = Integer.parseInt(txtColumna.getText());
+            modelo.setValueAt(txtNuevo.getText(), fila, columna);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese los datos correctamente.");
+        }
     }//GEN-LAST:event_bModiActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(Animales.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
+        //</editor-fold>
 
-    /* Create and display the form */
-}
+        /* Create and display the form */
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bAñadir;

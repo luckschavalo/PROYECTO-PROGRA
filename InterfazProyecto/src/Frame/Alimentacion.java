@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableModel;
 public class Alimentacion extends javax.swing.JFrame {
 
     private static DefaultTableModel modelo = new DefaultTableModel();
+    //Se crea un metodo que permite llamar los datos de la tabla de animales
     private static DefaultTableModel tablaAnimales = Animales.getModelo();
-    
+
     /**
      * Creates new form Habitats
      */
@@ -282,6 +283,7 @@ public class Alimentacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtalimentoActionPerformed
 
+    //Metodo del boton que permite añadir la informacion
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String[] info = new String[5];
         info[0] = txtanimal.getText();
@@ -295,9 +297,9 @@ public class Alimentacion extends javax.swing.JFrame {
         txthorario.setText("");
         txtfrecu.setText("");
         txtcantidad1.setText("");
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
+    }//GEN-LAST:event_jButton2ActionPerformed
+    //Metodo del boton que permite eliminar la informacion
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int fila = tabla.getSelectedRow();
         if (fila >= 0) {
@@ -307,15 +309,15 @@ public class Alimentacion extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    //Metodo del botón que permite modificar la información
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        try{ 
-        int fila = Integer.parseInt(txtFila.getText());
-        int columna = Integer.parseInt(txtColumna.getText());
-        modelo.setValueAt(txtNuevo.getText(), fila, columna);
-    } catch (NumberFormatException e) {
-        JOptionPane.showMessageDialog(null, "Por favor, ingrese los datos correctamente.");
-    }
+        try {
+            int fila = Integer.parseInt(txtFila.getText());
+            int columna = Integer.parseInt(txtColumna.getText());
+            modelo.setValueAt(txtNuevo.getText(), fila, columna);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese los datos correctamente.");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void txtcantidad1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidad1ActionPerformed

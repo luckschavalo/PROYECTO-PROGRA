@@ -1,5 +1,5 @@
 package Frame;
-
+//CLASE PRINCIPAL
 public class JFrame extends javax.swing.JFrame {
 
     private Alimentacion alimentacion;
@@ -182,11 +182,11 @@ public class JFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Metodos que permiten el acceso a las distintas clases mediante los botones
+    
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        if (alimentacion == null) {
-            alimentacion = new Alimentacion();
-        }
+        Alimentacion alimentacion = new Alimentacion();
         alimentacion.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
